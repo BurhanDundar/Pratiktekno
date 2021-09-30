@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fontawesome-free-5.15.4-web/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbarFront frontend-nav">
+        <div class="pratikTekno"><a href="/login">PRATİKTEKNO</a></div>
+        <div class="search">
+            <form action="/search" method="post">
+                <label for="searchedName"></label>
+                <input class="searchButtonFront" placeholder="Ürün Adı" type="text" name="searchedName">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <form action="clear" method="post">
+                <button type="submit">clear</button>
+            </form>
+            <!-- <button class="searchButtonFront" onclick="search()">Ara</button> -->
+        </div>
+    </nav>
+
+    <% if(!data.products.length) { %>
+    <div class="productNotFound">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div class="productNotFoundText">Bu isme sahip herhangi bir ürün bulunamadı!</div>
+    </div>
+    <% } else { %>
+        <div class="parentContainer">
+        <% for(let i=0;i < data.products.length;i++) { %>
+            <div class="productListContainer">
+                <a href="<%- data.products[i].productLink%>" class="productList">
+                    <img class="productImageFront" src="/uploads/<%= data.products[i].productImage %>" alt="">
+                    <div class="productDescription"> <%- data.products[i].productName %></div>
+                </a>
+            </div>
+        <%  }  %>
+    </div>
+    <% } %>
+
+
+
+
+
+</body>
+
+<script>
+    // let products = <%- JSON.stringify(data.products) %>;
+</script>
+<%- include('search') %>
+
+</html>

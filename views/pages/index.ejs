@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('navbar') %>
+    <div class="tableContainer">
+        <table class="productTable">
+            <tr class="headerTr">
+                <th>#</th>
+                <th>Ürün adı</th>
+                <th>Ürün linki</th>
+                <th>Ürün fotoğrafı</th>
+                <th>Ürün durumu</th>
+                <th>İşlemler</th>
+            </tr>
+            <% let productsLength = data.products.length %>
+
+            <% for(let i = 0;i < productsLength;i++) { %>
+            <tr class="tdRow" id="<%- JSON.stringify(data.products[i].id)%>">
+                <td><%- JSON.stringify(data.products[i].id) %></td>
+                <td><%- data.products[i].productName %> </td>
+                <td><%- data.products[i].productLink == "null" ? "" : data.products[i].productLink  %></label></td>
+                <td><img width="100px" height="100px"
+                        src="/uploads/<%- data.products[i].productImage == "null" ? "" : data.products[i].productImage %>"
+                        alt=""></td>
+                <!-- <td><%- JSON.stringify(data.products[i].status) %></td> -->
+                <td><label class="switch">
+                        <input type="checkbox" disabled
+                            <%- JSON.stringify(data.products[i].status) == 1 ? "checked" : "" %>>
+                        <span class="slider round"></span>
+                    </label></td>
+                <!-- <td><%- JSON.stringify(data.products[i].createdDate) %></td> -->
+                <form action="edit/<%- JSON.stringify(data.products[i].id) %>">
+                    <td><button class="update">Güncelle</button>
+                </form>
+                <button onclick="deleteP(<%- JSON.stringify(data.products[i].id)%>)" class="delete">Sil</button></td>
+            </tr>
+            <% } %>
+
+        </table>
+    </div>
+
+
+
+</body>
+
+<script>
+    let products = <%- JSON.stringify(data.products) %>;
+</script>
+<%- include('library') %>
+
+</html>

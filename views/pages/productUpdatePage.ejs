@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('navbar') %>
+
+    <div class="updateContainer">
+    <h2>Ürün Güncelleme</h2>
+    <form class="updateForm" action="" method="post" enctype="multipart/form-data">
+        <div class="row" id="nameRow">
+            <label for="name">Ürün İsmi</label>
+            <input type="text" name="name" value="<%- data.product[0].productName %>">
+        </div>
+        <br>
+        <div class="file-field input-field inline-img">
+            <div class="btn grey">
+              <span>Dosya</span>
+              <input name="myImage" type="file">
+            </div>
+            <img width="100px" height="100px" src="/uploads/<%- data.product[0].productImage == "null" ? "" : data.product[0].productImage %>" alt="">
+          </div>
+        <br>
+        <div class="row" id="linkRow">
+            <label for="link">link</label>
+            <input type="text" name="link" value="<%- data.product[0].productLink %>">
+        </div>
+        <br>
+        <div class="row updateStatus" id="statusRow">
+            <div class="active">Aktif</div>
+            <label class="switch"> <!--for="status"-->
+              <input type="checkbox" name="status" <%- data.product[0].status == 1 ? "checked" : "" %>>
+              <span class="slider round"></span>
+            </label>
+          </div> 
+        <br>
+        <input type="submit" value="güncelle">
+    </form>
+</div>
+
+</body>
+<%- include('library') %>
+</html>

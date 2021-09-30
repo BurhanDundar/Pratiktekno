@@ -1,0 +1,73 @@
+<!--settings içerisinde olacaklar-->
+
+<!-- 
+1.) şifre değiştirme 
+2.) admin ekleme
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>Settings</title>
+</head>
+<body>
+    
+    <%- include('navbar') %>
+    
+    <div class="settingsUpdateAdminContainer">
+        <h3>Şifre Güncelleme</h3>
+        <br>
+        <div style="color:blue"><%= typeof responseInfo1 != 'undefined' ? responseInfo1 : '' %></div>
+        <div style="color:red"><%= typeof warnInfo != 'undefined' ? warnInfo : '' %></div>        
+        <br>
+        <form class="settingsUpdateAdminForm" action="/updateAdminPassword" method="post">
+            <div class="row" id="emailRow">
+                <label for="name">Email</label>
+                <input placeholder="Email" type="text" name="email">
+            </div>
+            <br>
+            <div class="row" id="oldPasswordRow">
+                <label for="oldPassword">Eski Şifre</label>
+                <input type="password" placeholder="Eski Şifre" name="oldPassword">
+            </div>
+            <br>
+            <div class="row" id="newPasswordRow">
+                <label for="newPassword">Yeni Şifre</label>
+                <input type="password" placeholder="Yeni Şifre" name="newPassword">
+            </div>
+            <br>
+            <input type="submit" value="güncelle">
+        </form>
+    </div>
+    <br>
+    <div class="settingsAddAdminContainer">
+        <h3>Yeni Admin Ekle</h3>
+        <br>    
+        <div style="color:blue"><%= typeof responseInfo2 != 'undefined' ? responseInfo2 : '' %></div>
+        <br>
+        <form class="settingsAddAdminForm" action="/addNewAdmin" method="post">
+            <div class="row" id="nameRow">
+                <label for="name">İsim</label>
+                <input placeholder="İsim" type="text" name="name">
+            </div>
+            <br>
+            <div class="row" id="emailRow">
+                <label for="email">Email</label>
+                <input placeholder="Email" type="text" name="email">
+            </div>
+            <br>
+            <div class="row" id="newPasswordRow">
+                <label for="password">Şifre</label>
+                <input type="password" placeholder="Şifre" name="password">
+            </div>
+            <br>
+            <input type="submit" value="ekle">
+        </form>
+    </div>
+
+</body>
+<%- include('library') %>
+</html>

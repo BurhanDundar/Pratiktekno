@@ -1,0 +1,42 @@
+<!--login içerisinde olacaklar-->
+
+<!-- 
+1.) token bazlı giriş sistemi
+2.) Her sayfada admin kontrolü
+3.) Logout
+4.) genel bir responsive tasarım kontrolü yapılacak
+-->
+
+<!-- command-shift-p => wakatime coding activity =  false -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="loginContainer">
+        <h2>Admin Paneline Hoşgeldiniz!</h2>
+        <h3>Giriş Yap</h3>
+        <br>
+        <div style="color:red"><%= typeof authWarn != 'undefined' ? authWarn : '' %></div>
+        <br>
+        <form class="emailForm" action="/login" method="post">
+            <div class="row" id="emailRow">
+                <label for="name">Email</label>
+                <input placeholder="Email" type="text" name="email">
+            </div>
+            <br>
+            <div class="row" id="passwordRow">
+                <label for="password">Şifre</label>
+                <input type="password" placeholder="Şifre" name="password">
+            </div>
+            <br>
+            <input type="submit" value="login">
+        </form>
+    </div>
+</body>
+</html>

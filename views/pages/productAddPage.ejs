@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <%- include('navbar') %>
+
+    <!--Created date ekelenebilir ona bakarsın-->
+    <div class="addContainer">
+        <h2>Ürün Ekleme</h2>
+        <form class="addForm" action="/add" method="POST" enctype="multipart/form-data">
+          <div class="row" id="nameRow">
+          <label for="name">name</label>
+          <input type="text" name="name">
+          </div>
+           <!-- <%= typeof msg != 'undefined' ? msg : '' %> -->
+          <div class="row file-field input-field">
+            <div class="btn grey">
+              <span>Dosya</span>
+              <input required name="myImage" type="file">
+            </div>
+          </div>
+
+          <div class="row" id="linkRow">
+            <label for="link">link</label>
+            <input type="text" name="link">
+        </div>
+        <br>
+        <div class="row addStatus" id="statusRow">
+          <div class="active">Aktif</div>
+          <label class="switch"> <!--for="status"-->
+            <input type="checkbox" name="status" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>  
+        <input type="submit" class="btn" value="ekle">
+        </form>
+    </div>
+</body>
+<%- include('library') %>
+</html>
