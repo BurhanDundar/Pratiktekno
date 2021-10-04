@@ -1,5 +1,5 @@
 var con = require('../../database');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const path = require('path');
 const randomNumber = require("random-number-csprng");
