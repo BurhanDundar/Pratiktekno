@@ -240,7 +240,7 @@ background:#45a049;
 }
 
 .productImageFront{ 
-  /* width: 15%; */
+  width: 40%;
 }
 
 @media (min-width: 800px) {
@@ -257,7 +257,11 @@ background:#45a049;
 
 .parentContainer{
   display: grid;
+  -webkit-display:grid;
+  -moz-display:grid;
   grid-template-columns: 25% 25% 25% 25%;
+  -webkit-grid-template-columns: 25% 25% 25% 25%;
+  -moz-grid-template-columns: 25% 25% 25% 25%;
 }
 
 .productListContainer{
@@ -461,6 +465,8 @@ background:#45a049;
 
 .parentContainer{
   grid-template-columns: 100%;
+  -webkit-grid-template-columns: 100%;
+  -moz-grid-template-columns: 100%;
 }
 
 }
