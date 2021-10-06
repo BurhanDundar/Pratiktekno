@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.get('/panel', getProducts);
+app.get('/panel',checkAuth, getProducts);
 app.get('/', frontendPage);
 app.get('/edit/:id', productUpdatePage);
 app.get('/login', (req, res) => {
@@ -53,7 +53,7 @@ app.post('/addNewAdmin', addNewAdmin);
 app.post('/updateAdminPassword', updateAdminPassword);
 app.post('/login', beLoggedIn);
 app.post('/edit/:id', updateProduct);
-app.get('/add', productAddPage);
+app.get('/add',checkAuth, productAddPage);
 app.post('/add', addProduct);
 app.post('/search', searchProduct);
 app.post('/clear', clearSearchProduct);
